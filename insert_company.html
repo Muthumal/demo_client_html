@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert Company</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/plugins/dropzone/basic.css" rel="stylesheet">
+    <link href="css/plugins/dropzone/dropzone.css" rel="stylesheet">
+    <link href="css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
+    <link href="css/plugins/codemirror/codemirror.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <img alt="image" class="rounded-circle" src="img/profile_small.jpg"/>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="block m-t-xs font-bold">Admin</span>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a class="dropdown-item" onclick="logout()">Logout</a></li>
+                            <script>
+                                function logout() {
+                                    localStorage.removeItem("auth_data");
+                                    location.reload();
+                                }
+                            </script>
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                        IN+
+                    </div>
+                </li>
+                <li>
+                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Company</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="view_company.html">View</a></li>
+                        <li><a href="insert_company.html">Insert</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Employee</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="view_employee.html">View</a></li>
+                        <li><a href="insert_employee.html">Insert</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>Company Form</h2>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        <strong>Insert Company</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+        <div class="wrapper wrapper-content animated fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox ">
+                        <div class="ibox-content">
+                            <form id="companyInsertForm" method="POST" enctype="multipart/form-data" class="form-group">
+                                <div class="form-group  row">
+                                    <label class="col-sm-2 col-form-label">Name</label>
+                                    <div class="col-sm-10"><input id="name" type="text" name="name" class="form-control" required></div>
+                                </div>
+                                <div class="form-group  row">
+                                    <label class="col-sm-2 col-form-label">Email</label>
+                                    <div class="col-sm-10"><input id="email" type="email" name="email" class="form-control"></div>
+                                </div>
+                                <div class="form-group  row">
+                                    <label class="col-sm-2 col-form-label">Website</label>
+                                    <div class="col-sm-10"><input id="website" type="url" name="website" class="form-control"></div>
+                                </div>
+
+                                <div class="form-group  row">
+                                    <label class="col-sm-2 col-form-label">Logo</label>
+                                    <div class="col-sm-10">
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <span class="btn btn-default btn-file"><span class="fileinput-new">Select file</span>
+                                            <span class="fileinput-exists">Change</span><input onchange="onFileChange(this.files[0])" type="file" name="file" id="logo"/></span>
+                                            <span id="fileName" class="fileinput-filename"></span>
+                                            <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">×</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <br>
+                                <div class="form-group  row">
+                                    <label class="col-sm-2 col-form-label"></label>
+                                    <div class="col-sm-10">
+                                        <input type="submit"  class="form-control btn-primary">
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- Mainly scripts -->
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
+
+<!-- Jasny -->
+<script src="js/plugins/jasny/jasny-bootstrap.min.js"></script>
+
+<!-- DROPZONE -->
+<script src="js/plugins/dropzone/dropzone.js"></script>
+
+<!-- CodeMirror -->
+<script src="js/plugins/codemirror/codemirror.js"></script>
+<script src="js/plugins/codemirror/mode/xml/xml.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+
+<script>
+
+    var auth_data;
+    var is_update=false;
+    var id;
+    $(document).ready(function () {
+        auth_data=localStorage.getItem("auth_data");
+        if (auth_data===null){
+            window.location.href ="index.html";
+        }
+        let searchParams = new URLSearchParams(window.location.search);
+        if(searchParams.has("id")){
+            id=searchParams.get("id");
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:8080/api/v1/company/"+id,
+                dataType: 'json',
+                beforeSend: function (xhr){
+                    xhr.setRequestHeader('Authorization', auth_data);
+                },
+                success: function(data){
+                    $("#name").val(data.name);
+                    $("#email").val(data.email);
+                    $("#website").val(data.website);
+                    is_update=true;
+                },
+                error: function(data){
+
+                }
+            });
+        }
+    });
+
+    function onFileChange(file) {
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function (e) {
+            var image = new Image();
+            image.src = e.target.result;
+            image.onload = function () {
+                var height = this.height;
+                var width = this.width;
+                var foo = document.getElementById('logo');
+                if (height < 100 || width < 100) {
+                    foo.setCustomValidity('Image should be larger than (100x100)');
+                    return false;
+                }
+                foo.setCustomValidity("");
+                return true;
+            };
+        }
+        console.log(reader.onload);
+    }
+    function new_data_insert() {
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/api/v1/company",
+            enctype: 'multipart/form-data',
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', auth_data);
+            },
+            success: function (data) {
+                alert("successfully added");
+                location.reload();
+            },
+            error: function (data) {
+            }
+        });
+    }
+    function update_data() {
+        $.ajax({
+            type: "PUT",
+            url: "http://localhost:8080/api/v1/company/"+id,
+            enctype: 'multipart/form-data',
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', auth_data);
+            },
+            success: function (data) {
+                alert("successfully Updated");
+                window.location.href="view_company.html";
+            },
+            error: function (data) {
+            }
+        });
+    }
+
+    $("#companyInsertForm").on('submit',function (e) {
+        e.preventDefault();
+        if(is_update){
+            update_data.call(this);
+        }else {
+            new_data_insert.call(this);
+        }
+
+    });
+
+
+</script>
+
+</body>
+</html>
